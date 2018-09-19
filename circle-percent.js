@@ -105,14 +105,11 @@ class CirclePercent extends PolymerElement {
       percent: {
         type: Number,
         value: 25,
+        observer:'_percentChange'
       },
       dasharray: {
         type: String,
-        value: function() {
-          let a =  '' + 300 * this.percent / 100 + ' 360';
-          console.log(a);
-          return a;
-        }
+        value: '75 300'
       },
       _radio: {
         type: Number,
@@ -127,6 +124,12 @@ class CirclePercent extends PolymerElement {
 
   getDiametro(_radio) {
     return _radio*2;
+  }
+
+  _percentChange() {
+    this.dasharray =  '' + 300 * this.percent / 100 + ' 300';
+    console.log(a);
+    return a;
   }
 }
 
