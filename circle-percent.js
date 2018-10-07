@@ -12,6 +12,7 @@ import {afterNextRender, beforeNextRender} from '/node_modules/@polymer/polymer/
 class CircleAlone extends LitElement {
   static get properties() {
     return {
+      percent: { type: Number },
       dasharray: { type:  String },
     }
   }
@@ -58,6 +59,11 @@ class CirclePercent extends LitElement {
     this.percent = 25;
     this.dasharray = '' + 300 * this.percent / 100 + ' 300';
     this._radio = 100;
+    this.diametro = this._radio * 2;
+  }
+
+  updated(changedProperties) {
+    this.dasharray = '' + 300 * this.percent / 100 + ' 300';
     this.diametro = this._radio * 2;
   }
 
