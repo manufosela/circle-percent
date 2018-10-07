@@ -1,7 +1,7 @@
 {
   "name": "@manufosela/circle-percent",
   "description": "Polymer 3.0 webcomponent with lit-html to draw a percent of circle",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "circle-percent.js",
   "repository": {
     "type": "git",
