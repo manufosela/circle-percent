@@ -1,38 +1,4 @@
-import { LitElement, html } from '/node_modules/@polymer/lit-element/lit-element.js';
-import {afterNextRender, beforeNextRender} from '/node_modules/@polymer/polymer/lib/utils/render-status.js';
-
-/**
- * `circle-alone`
- * Circle Alone
- *
- * @customElement
- * @polymer
- * @demo
- */
-class CircleAlone extends LitElement {
-  static get properties() {
-    return {
-      percent: { type: Number },
-      dasharray: { type:  String },
-    }
-  }
-
-  constructor() {
-    super();
-    this.dasharray = "225, 300";
-  }
-
-  render() {
-    return html`
-    <svg>
-      <circle cx="50" cy="50" r="47" stroke-dasharray="${this.dasharray}" stroke="#cb2240" stroke-width="4" fill="none" />
-    </svg>
-    `;
-  }
-}
-
-window.customElements.define('circle-alone', CircleAlone);
-
+import { LitElement, html, css } from '/node_modules/lit-element/lit-element.js';
 
 /**
  * `circle-percent`
@@ -47,29 +13,16 @@ class CirclePercent extends LitElement {
     return {
       title: { type: String },
       percent: { type: Number },
-      dasharray: { type: String },
-      _radio: { type: Number },
-      diametro:{ type: Number }
+      radio: { type: Number },
+      swidth: { type: Number },
+      scolor: { type: String },
+      _dasharray: { type: String }
     }
   }
 
-  constructor() {
-    super();
-    this.title = "TITLE";
-    this.percent = 25;
-    this.dasharray = '' + 300 * this.percent / 100 + ' 300';
-    this._radio = 100;
-    this.diametro = this._radio * 2;
-  }
-
-  updated(changedProperties) {
-    this.dasharray = '' + 300 * this.percent / 100 + ' 300';
-    this.diametro = this._radio * 2;
-  }
-
-  render() {
-    return html`
-    <style>
+  static get styles() {
+    return css`
+      svg { transform: rotateX(180deg) rotateY(180deg); }
       .circle-inf {
         text-align: center;
       }
@@ -102,29 +55,45 @@ class CirclePercent extends LitElement {
         letter-spacing: 2px;
         font-size: 18px;
       }
-      
-    </style>
-    <div class="circle-inf">
-      <div class="circle-inf__percent">
-        <div class="circle-inf__percent-circle">
-          <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-            <defs>
-              <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#0c1e2c" stop-opacity="0" />
-                <stop offset="100%" stop-color="#cb2240" stop-opacity="1" />
-              </linearGradient>
-            </defs>
-            <foreignObject>
-              <circle-alone dasharray="${this.dasharray}"></circle-alone>
-            </foreignObject>
-          </svg>
+    `;
+  }
+
+  constructor() {
+    super();
+    this.title = "TITLE";
+    this.percent = 25;
+    this.radio = 100;
+    this.swidth = 4;
+    this.scolor = "#cb2240";
+    this._dasharray = "" + Math.PI * this.radio * this.percent/100 + " " + Math.PI * this.radio;
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.get('radio') !== this.radio || changedProperties.get('percent') !== this.percent) {
+      this._dasharray = "" + Math.PI * this.radio * this.percent/100 + " " + Math.PI * this.radio;
+      console.log(this._dasharray);
+    }
+  }
+
+  render() {
+    return html`
+      <div class="circle-inf">
+        <div class="circle-inf__percent">
+          <div class="circle-inf__percent-circle">
+            <svg width="${this.radio+this.swidth}" height="${this.radio+this.swidth}" 
+                viewBox="0 ${-this.swidth/2} ${this.radio} ${this.radio+this.swidth}">
+              <circle cx="${this.radio/2}" cy="${this.radio/2}" 
+                      r="${this.radio/2}" stroke="${this.scolor}" fill="none"
+                      stroke-width="${this.swidth}"
+                      stroke-dasharray="${this._dasharray}" />
+            </svg>     
+          </div>
+          <div class="circle-inf__percent-txt">
+            ${this.percent}%
+          </div>
         </div>
-        <div class="circle-inf__percent-txt">
-          ${this.percent}%
-        </div>
+        <span class="circle-inf__title">${this.title}</span>
       </div>
-      <span class="circle-inf__title">${this.title}</span>
-    </div>
     `;
   }
 }
