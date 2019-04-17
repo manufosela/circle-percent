@@ -71,7 +71,6 @@ class CirclePercent extends LitElement {
   updated(changedProperties) {
     if (changedProperties.get('radio') !== this.radio || changedProperties.get('percent') !== this.percent) {
       this._dasharray = "" + Math.PI * this.radio * this.percent/100 + " " + Math.PI * this.radio;
-      console.log(this._dasharray);
     }
   }
 
