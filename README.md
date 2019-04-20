@@ -7,7 +7,7 @@ Lit-Element web component configurable to show a circle percent and title.
 
 ## Demo
 
-[circle-percent codepen demo](http://codepen.io/manufosela/pen/QGaKMw)
+[circle-percent codepen demo](https://codepen.io/manufosela/pen/qwKqjg?editors=1010#0)
 
 ```
 <h3>Basic circle-percent demo default</h3>
