@@ -1,4 +1,4 @@
-import { LitElement, html, css } from './node_modules/lit-element/lit-element.js';
+import { LitElement, html, css } from 'lit-element';
 
 /**
  * `circle-percent`
@@ -25,6 +25,7 @@ class CirclePercent extends LitElement {
       svg { transform: rotateX(180deg) rotateY(180deg); }
       .circle-inf {
         text-align: center;
+        margin: 0 0 2em 0;
       }
       @media screen and (max-width: 767px) {
         .circle-inf {
@@ -33,10 +34,10 @@ class CirclePercent extends LitElement {
       }
       .circle-inf__percent {
         font-weight: 700;
-        font-size: 22px;
+        font-size: var(--inf-font-size, 22px);
         letter-spacing: 1px;
         margin-bottom: 12px;
-        font-family: "Dosis", sans-serif;
+        font-family: var(--inf-font-family, "Dosis", sans-serif);
         position: relative;
       }
       .circle-inf__percent circle {
