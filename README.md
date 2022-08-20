@@ -1,76 +1,76 @@
-# circle-percent
+# \<circle-percent>
 
-# circle-percent [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/manufosela/circle-percent)
+This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
+## Installation
 
-Lit-Element web component configurable to show a circle percent and title.
-
-## Demo
-
-[circle-percent codepen demo](https://codepen.io/manufosela/pen/qwKqjg?editors=1010#0)
-
+```bash
+npm i circle-percent
 ```
-<h3>Basic circle-percent demo default</h3>
-<circle-percent></circle-percent>
 
-<h3>Circle-percent demo 2</h3>
-<circle-percent percent="70" radio="200" title="circle percent 70% radio=200px"></circle-percent>
+## Usage
 
-<h3>Circle-percent demo 3</h3>
-<circle-percent percent="60" swidth="10" scolor="#F93" title="circle percent 60% radio=200px color=#F93"></circle-percent>
-```
-<!---
-```
-<custom-element-demo>
-  <template>
-    <link rel="import" href="circle-percent.html">
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
 ```html
-<h3>Basic circle-percent demo default</h3>
+<script type="module">
+  import 'circle-percent/circle-percent.js';
+</script>
+
 <circle-percent></circle-percent>
-
-<h3>Circle-percent demo 2</h3>
-<circle-percent percent="70" radio="200" title="circle percent 70% radio=200px"></circle-percent>
-
-<h3>Circle-percent demo 3</h3>
-<circle-percent percent="60" swidth="10" scolor="#F93" title="circle percent 60% radio=200px color=#F93"></circle-percent>
 ```
 
-## CSS Variables
---inf-font-size
---inf-font-family
+## Linting and formatting
 
-## Install the Polymer-CLI
+To scan the project for linting and formatting errors, run
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) and npm (packaged with [Node.js](https://nodejs.org)) installed. Run `npm install` to install your element's dependencies, then run `polymer serve` to serve your element locally.
-
-## Viewing Your Element
-
-```
-$ polymer serve
+```bash
+npm run lint
 ```
 
-## Running Tests
+To automatically fix linting and formatting errors, run
 
-```
-$ polymer test
-```
-
-## Build
-```
-$ npm run build
+```bash
+npm run format
 ```
 
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+## Testing with Web Test Runner
 
-## Author
+To execute a single test run:
 
-* **Mánu Fosela** - *Javascript Composer* - [manufosela](https://github.com/manufosela)
+```bash
+npm run test
+```
 
-## License
+To run the tests in interactive watch mode run:
 
-This project is licensed under Apaceh 2.0 License - see the [LICENSE](LICENSE) file for details
+```bash
+npm run test:watch
+```
+
+## Demoing with Storybook
+
+To run a local instance of Storybook for your component, run
+
+```bash
+npm run storybook
+```
+
+To build a production version of Storybook, run
+
+```bash
+npm run storybook:build
+```
+
+
+## Tooling configs
+
+For most of the tools, the configuration is in the `package.json` to minimize the amount of files in your project.
+
+If you customize the configuration a lot, you can consider moving them to individual files.
+
+## Local Demo with `web-dev-server`
+
+```bash
+npm start
+```
+
+To run a local development server that serves the basic demo located in `demo/index.html`
