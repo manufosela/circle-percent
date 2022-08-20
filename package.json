@@ -1,11 +1,23 @@
 {
   "name": "@manufosela/circle-percent",
-  "description": "Webcomponent circle-percent following open-wc recommendations",
-  "license": "MIT",
-  "author": "circle-percent",
-  "version": "0.0.0",
-  "main": "index.js",
+  "description": "Webcomponent to draw a percent of circle following open-wc recommendations",
+  "version": "3.0.0",
+  "main": "circle-percent.js",
   "module": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manufosela/circle-percent"
+  },
+  "author": "manufosela",
+  "license": "MIT",
+  "keywords": [
+    "webcomponent",
+    "lit-element"
+  ],
+  "bugs": {
+    "url": "https://github.com/manufosela/circle-percent/issues"
+  },
+  "homepage": "https://github.com/manufosela/circle-percent",
   "scripts": {
     "analyze": "cem analyze --litelement",
     "start": "web-dev-server",

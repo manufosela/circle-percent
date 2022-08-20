@@ -8,7 +8,7 @@ import { LitElement, html, css } from 'lit';
  * @polymer
  * @demo demo/index.html
  */
-class CirclePercent extends LitElement {
+export class CirclePercent extends LitElement {
   static get properties() {
     return {
       title: { type: String },
